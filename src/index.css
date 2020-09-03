@@ -7,3 +7,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.car-item{
+  display: inline-flex;
+  margin: 20px 10px;
+}
+
+.car-item .right-block{
+    padding: 0px 20px;
+}
+
+.car-item-actions{
+  margin-top: 20px;
+}
+
+.action-icons{
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+
+}
+
+.action-icons:hover {
+  cursor: pointer;
+
+}

@@ -7,13 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.car-item{
+.cart-item{
   display: inline-flex;
   margin: 20px 10px;
 }
 
 .car-item .right-block{
     padding: 0px 20px;
+    
 }
 
 .car-item-actions{

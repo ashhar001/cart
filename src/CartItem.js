@@ -9,7 +9,27 @@ class CartItem extends React.Component{
             qty: 1,
             img: ''
         }
+
+        //this.testing();
     }
+    /*
+    testing(){
+
+        const promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('done');
+            }, 5000);
+        })
+
+        promise.then(() => {
+            //set state acts like asychronous call
+            this.setState({qty:this.state.qty + 10});
+            this.setState({qty:this.state.qty + 10});
+            this.setState({qty:this.state.qty + 10});
+
+            console.log('state', this.state);
+        });
+    }*/
     increaseQty = () =>{
         ///this.state.qty += 1;
         console.log('this', this.state);
@@ -21,14 +41,40 @@ class CartItem extends React.Component{
         */
        /*set state form 2 if previous state is required use this method set state
         method will rerender the new state by shallow merging it with tht old state*/
-
+        
         this.setState((prevState) => {
             return{
                 qty: prevState.qty + 1
             }
+        }, () => {
+            console.log('this.state', this.state);
         });
     }
+
+    decreaseQty = () =>{
+        const { qty } = this.state;
+
+        if(qty === 0){
+            return;
+        }
+        this.setState((currState) => {
+            return{
+                qty: currState.qty - 1
+            }
+        });
+        this.setState((currState) => {
+            return{
+                qty: currState.qty - 2
+            }
+        });
+        /*
+       this.setState({
+           qty: this.state.qty - 1
+       })
+       */
+    }
     render(){
+        
         const{price, title, qty} = this.state;
         return(
             <div className="cart-item">
@@ -50,7 +96,9 @@ class CartItem extends React.Component{
                         />
                         <img alt="decrease" 
                         className="action-icons" 
-                        src="https://image.flaticon.com/icons/svg/659/659892.svg"/>
+                        src="https://image.flaticon.com/icons/svg/659/659892.svg"
+                        onClick={this.decreaseQty}
+                        />
                         <img alt="delete" 
                         className="action-icons" 
                         src="https://image.flaticon.com/icons/svg/1345/1345823.svg"/>

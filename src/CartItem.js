@@ -1,7 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component{
-    
+    /*
     /*
     testing(){
 
@@ -20,9 +20,9 @@ class CartItem extends React.Component{
             console.log('state', this.state);
         });
     }*/
-    increaseQty = () =>{
+   /* increaseQty = () =>{*/
         ///this.state.qty += 1;
-        console.log('this', this.state);
+        /*console.log('this', this.state);*/
         //set state form 1
         /*
         this.setState({
@@ -31,7 +31,7 @@ class CartItem extends React.Component{
         */
        /*set state form 2 if previous state is required use this method set state
         method will rerender the new state by shallow merging it with tht old state*/
-        
+        /*
         this.setState((prevState) => {
             return{
                 qty: prevState.qty + 1
@@ -39,8 +39,8 @@ class CartItem extends React.Component{
         }, () => {
             console.log('this.state', this.state);
         });
-    }
-
+    }*/
+/*
     decreaseQty = () =>{
         const { qty } = this.state;
 
@@ -61,8 +61,8 @@ class CartItem extends React.Component{
        this.setState({
            qty: this.state.qty - 1
        })
-       */
-    }
+       
+    }*/
     render(){
         console.log('this.props', this.props)
         const{price, title, qty} = this.props.product;
@@ -83,12 +83,12 @@ class CartItem extends React.Component{
                         <img alt="increase" 
                         className="action-icons" 
                         src="https://image.flaticon.com/icons/svg/992/992651.svg"
-                        onClick={this.increaseQty}
+                        onClick={() => this.props.onIncreaseQty(this.props.product)}
                         />
                         <img alt="decrease" 
                         className="action-icons" 
                         src="https://image.flaticon.com/icons/svg/659/659892.svg"
-                        onClick={this.decreaseQty}
+                        onClick={() => this.props.onDecreaseQty(this.props.product)}
                         />
                         <img alt="delete" 
                         className="action-icons" 

@@ -39,6 +39,30 @@ class Cart extends React.Component {
 
         //this.testing();
     }
+
+    handleincreaseQty = (product) => {
+        console.log('Hey incr the qty of ', product);
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+        products[index].qty +=1;
+
+        this.setState({
+            //products: products
+            products    //we can write it like this also bcs key and value has same varialble name
+        })
+    }
+
+    handledecreaseQty = (product) => {
+        const {products} = this.state;
+        const index = products.indexOf(product);
+
+        products[index].qty -= 1;
+
+        this.setState({
+            products
+        })
+    }
     render(){
         const {products} = this.state;
         return(
@@ -51,6 +75,8 @@ class Cart extends React.Component {
                         <CartItem 
                             product = { product } 
                             key={product.id}
+                            onIncreaseQty = {this.handleincreaseQty}
+                            onDecreaseQty = { this.handledecreaseQty}
                         />
                     )
                    })

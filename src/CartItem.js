@@ -1,6 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component{
+    // can change this whole without class like NavBar.js just remove render and this.
     /*
     /*
     testing(){
@@ -66,11 +67,17 @@ class CartItem extends React.Component{
     render(){
         console.log('this.props', this.props)
         const{price, title, qty} = this.props.product;
+        const {
+            product,
+            onIncreaseQty,
+            onDecreaseQty,
+            onDeleteProduct
+        } = this.props;
         return(
             <div className="cart-item">
                 {this.props.jsx}
                 <div className="left-block">
-                    <img style={ styles.image}/>
+                    <img alt="" style={ styles.image} src={ product.img}/>
                 </div>
 
                 <div className="right-block">
@@ -83,16 +90,18 @@ class CartItem extends React.Component{
                         <img alt="increase" 
                         className="action-icons" 
                         src="https://image.flaticon.com/icons/svg/992/992651.svg"
-                        onClick={() => this.props.onIncreaseQty(this.props.product)}
+                        onClick={() => onIncreaseQty(product)}
                         />
                         <img alt="decrease" 
                         className="action-icons" 
                         src="https://image.flaticon.com/icons/svg/659/659892.svg"
-                        onClick={() => this.props.onDecreaseQty(this.props.product)}
+                        onClick={() => onDecreaseQty(product)}
                         />
                         <img alt="delete" 
                         className="action-icons" 
-                        src="https://image.flaticon.com/icons/svg/1345/1345823.svg"/>
+                        src="https://image.flaticon.com/icons/svg/1345/1345823.svg"
+                        onClick={() => onDeleteProduct(product.id)}
+                        />
                         
                     </div>  
                 </div>
